@@ -13,10 +13,19 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    
                     <a href="/students/create" class="btn btn-primary">Add Data</a> <br><br>
+                    <form class="form" method="get" action="{{ route('search') }}">
+                        <div class="form-group w-100 mb-3">
+                            <label for="search" class="d-block mr-2">Search</label>
+                            <input type="text" name="search" class="form-control w-75 d-inline" id="search" 
+                                        placeholder="Masukkan nama yang anda cari">
+                                        
+                            <button type="submit" class="btn btn-primary mb-1">Search</button>
+                        </div>
+                    </form>
 
-                    <table class="table table-responsive">
+                    <table class="table table-responsive table-striped">
                         <thead>
                             <tr>
                                 <th>NIM</th>
@@ -34,12 +43,13 @@
                                 <td>{{ $s->class }}</td>
                                 <td>{{ $s->department }}</td>
                                 <td>
-                                    <form action="/students/{{$s->id}}" method="post">
+                                <form action="/students/{{$s->id}}" method="post">
                                     <a href="/students/{{$s->id}}/edit" class="btn btn-warning">Edit</a>
+                                    <a href="/students/{{$s->id}}" class="btn btn-info">View</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" name="delete" class="btn btn-danger">Delete</button>
-                                    </form>
+                                </form>
                                 </td>
                             </tr>
                             @endforeach
