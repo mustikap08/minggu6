@@ -16,9 +16,9 @@
                     @endif
 
                     <div class="card-body">
-                        Name : {{ $student->name }} <br> 
-                        NIM : {{ $student->nim }} <br> 
-                        Class : {{ $student->kelas->class_name }} <br>
+                        <b>Name</b> : {{ $student->name }} <br> 
+                        <b>NIM</b>  : {{ $student->nim }} <br> 
+                        <b>Class</b>: {{ $student->kelas->class_name }} <br><br>
 
                     <table class="table table-responsive table-striped">
                         <thead>
@@ -30,12 +30,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($student->courses as $cs)
+                            @foreach ($student->courses as $sc)
                             <tr>
-                                <td>{{ $cs->course_name }}</td>
-                                <td>{{ $cs->sks }}</td>
-                                <td>{{ $cs->semester }}</td>
-                                <td>{{ $cs->pivot->nilai }} </td>
+                                <td>{{ $sc->course_name }}</td>
+                                <td>{{ $sc->sks }}</td>
+                                <td>{{ $sc->semester }}</td>
+                                <td>{{ $sc->pivot->nilai }} </td>
                             </tr>
                             @endforeach
                         </tbody>
