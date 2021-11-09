@@ -106,7 +106,7 @@ class StudentController extends Controller
             \Storage::delete('public/'.$student->photo);
         }
         $image_name = $request->file('photo')->store('images','public'); $student->photo = $image_name;
-        
+
         $kelas = new Kelas;
         $kelas->id = $request->Kelas;
         $student->kelas()->associate($kelas);
@@ -138,5 +138,10 @@ class StudentController extends Controller
         $student = Student::find($id);
         return view('students.detail', ['student'=>$student]);
     }
+    public function report($id){
+        $student = Student::find($id);
+        $pdf = PDF::loadview('students.report',['student'=>$student]);
+        return $pdf->stream();
+       }
     
 }
