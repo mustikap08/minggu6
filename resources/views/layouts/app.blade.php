@@ -59,9 +59,11 @@
                             <li class="nav-item">
                                     <a class="nav-link" href="http://127.0.0.1:8000/students">{{ __('CRUD') }}</a>
                             </li>
+                            @can('manage-users')
                             <li class="nav-item">
                                     <a class="nav-link" href="http://127.0.0.1:8000/users">{{ __('USER DATA') }}</a>
                             </li>
+                            @endcan
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

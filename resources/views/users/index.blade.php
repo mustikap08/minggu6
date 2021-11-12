@@ -19,20 +19,20 @@
                 <table class="table table-responsive table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                         <th>Username</th>
                         <th>Name</th>
-                        <th>Username</th>
-                        <td>Email</td>
+                        <th>Email</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($user as $s)
                 <tr>
-                    <td>{{ $s->id }}</td>
-                    <td>{{ $s->name }}</td>
                     <td>{{ $s->username }}</td>
+                    <td>{{ $s->name }}</td>
                     <td>{{ $s->email }}</td>
+                    <td>{{ $s->role }}</td>
                     <td>
                     <form action="/users/{{$s->id}}" method="post">
                     <a href="/users/{{$s->id}}/edit" class="btn btn-warning">Edit</a>
